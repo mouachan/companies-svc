@@ -33,7 +33,7 @@
   },
   "description": "Angular directives for sorting nested lists using the HTML5 Drag and Drop API",
   "devDependencies": {
-    "angular": "~1.4.9",
+    "angular": "~1.7.9",
     "angular-mocks": "~1.4.9",
     "http-server": "~0.6.1",
     "jasmine-core": "~2.4.1",
