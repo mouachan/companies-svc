@@ -1,0 +1,17 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: companies-svc-native
+spec:
+  template:
+    metadata:
+      name: companies-svc-native-v1
+    spec:
+      containers:
+        - image: >-
+            quay.io/mouachan/companies-svc:native-1.0
+          env:
+            - name: JAVA_OPTS
+              value: "-Dvertx.cacheDirBase=/work/vertx"
+      imagePullSecrets:
+        - name: quay-secret

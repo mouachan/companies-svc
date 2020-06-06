@@ -5,59 +5,30 @@
   <meta charset="utf-8">
   <title>Nouvelle Déclaration</title>
 
-  <!-- PatternFly Styles -->
-  <link rel="stylesheet" href="scripts_js/patternfly/dist/css/patternfly.min.css">
-  <link rel="stylesheet" href="scripts_js/patternfly/dist/css/patternfly-additions.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css" />
-  <!-- Load AngularJS -->
-  <!--script src="/ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
-
-  <!-- Bootstrap base + PatternFly extensions + Your styles -->
-  <!-- <link rel="stylesheet" href="css/mystyles.css"> -->
-
-  <!-- JS -->
-  <!--script src="scripts_js/patternfly/scripts_js/jquery/dist/jquery.min.js"></script>
-  <script src="scripts_js/patternfly/scripts_js/bootstrap/dist/js/bootstrap.min.js"></script-->
-  <script src="scripts_js/jquery/dist/jquery.js"></script>
-  <script src="scripts_js/patternfly/dist/js/patternfly.min.js"></script>
-
-  <!-- C3, D3 - Charting Libraries -->
-  <!--script src="scripts_js/patternfly/scripts_js/d3/d3.min.js"></script>
-  <script src="scripts_js/patternfly/scripts_js/c3/c3.min.js"></script-->
-
-  <!--script src="scripts_js/patternfly/scripts_js/jquery-match-height/dist/jquery.matchHeight-min.js"></script-->
-
-  <!--script src="scripts_js/patternfly/scripts_js/jquery/dist/jquery.js"></script>
-  <script src="scripts_js/patternfly/scripts_js/bootstrap/dist/js/bootstrap.min.js"></script-->
-  <script src="scripts_js/patternfly/node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
-  <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/jquery-ui.js"></script>
-  <!--script src="node_modules/patternfly/node_modules/datatables.net/js/jquery.dataTables.js"></script>
-  <script src="node_modules/patternfly/node_modules/datatables.net-select/js/dataTables.select.js"></script>
-  <script src="node_modules/patternfly/node_modules/moment/moment.js"></script>
-  <!--
-  <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/d3.js"></script>
-  <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/c3.js"></script>
-  -->
-  <script src="scripts_js/patternfly/dist/js/patternfly-settings.js"></script>
-  <script src="scripts_js/patternfly/dist/js/patternfly-settings-colors.js"></script>
-  <script src="scripts_js/patternfly/dist/js/patternfly-settings-charts.js"></script>
-  <script src="scripts_js/angular/angular.js"></script>
-  <!--
-  <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/angular-dragdrop.js"></script>
-  -->
-  <script src="scripts_js/angularjs-datatables/dist/angular-datatables.js"></script>
-  <script src="scripts_js/angularjs-datatables/dist/plugins/select/angular-datatables.select.min.js"></script>
-  <script src="scripts_js/angular-sanitize/angular-sanitize.js"></script>
-  <script src="scripts_js/angular-animate/angular-animate.js"></script>
-  <script src="scripts_js/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-  <!--
-  <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/angular-bootstrap-prettify.js"></script>
-  -->
-  <script src="scripts_js/lodash/lodash.min.js"></script>
-  <script src="scripts_js/angular-patternfly/dist/angular-patternfly.js"></script>
-  <script src="scripts_js/angularjs-datatables/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script src="scripts_js/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+    <!-- PatternFly Styles -->
+    <link rel="stylesheet" href="js/patternfly.min.css">
+    <link rel="stylesheet" href="js/patternfly-additions.min.css">
+  
+    <!-- Bootstrap base + PatternFly extensions + Your styles -->
+    <!-- <link rel="stylesheet" href="css/mystyles.css"> -->
+  
+    <script src="js/patternfly-settings.js"></script>
+    <script src="js/patternfly-settings-colors.js"></script>
+    <script src="js/patternfly-settings-charts.js"></script>
+    <script src="js/angular.js"></script>
+    <!--
+    <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/angular-dragdrop.js"></script>
+    -->
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/ui-bootstrap-tpls.js"></script>
+    <!--
+    <script src="http://www.patternfly.org/angular-patternfly/grunt-scripts/angular-bootstrap-prettify.js"></script>
+    -->
+    <script src="js/lodash.min.js"></script>
+    <script src="js/angular-patternfly.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-drag-and-drop-lists.js"></script>
 
   <script type="text/javascript">
     var app = angular.module("CompaniesManagement", []);
@@ -207,7 +178,7 @@
 
   <div ng-controller="CompaniesManagementController" class="container-fluid container-cards-pf">
 
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-6 col-md-4">
       <div class="card-pf card-pf-utilization">
         <div class="card-pf-heading">
            <b>Manage companies</b> 

@@ -24,7 +24,6 @@ public class CompanyResource {
 
     @POST
     public List<CompanyInfo> add(CompanyInfo companyInfo) {
-       // companyService.add(companyInfo);
        companyInfo.persist();
         return list();
     }

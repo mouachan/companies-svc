@@ -1,13 +1,8 @@
 package org.redhat.mongodb;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import org.bson.codecs.pojo.annotations.BsonProperty;
-// import org.redhat.mongodb.notation.Notation;
-
 import io.quarkus.mongodb.panache.MongoEntity;
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import org.bson.Document;
@@ -32,11 +27,9 @@ public class CompanyInfo extends PanacheMongoEntity {
     private  String capitalSocial;
     private String chiffreAffaire;
     private String trancheEffectif;
-    // private Notation note;
 
-    public CompanyInfo(){
-
-    }
+    public CompanyInfo(){}
+   
     public CompanyInfo(String denomination, String siren) {
         this.denomination = denomination;
         this.siren = siren;
