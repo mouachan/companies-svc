@@ -1,10 +1,18 @@
-# Comapnies services 
+
+![Ouachani Logo](/img/logo.png) 
+
+# Companies services management
+
+## Goal
+
+This demo uses Quarkus, mongodb panache (more details : https://quarkus.io/guides/mongodb-panache) it aims to :
+- create API company management services to add/update/remove a company
+- build and deploy the service using openshift S2I 
 
 ## Prerequesties 
 Install :
 - oc client
-- knative client (kn)
-- openshift serverless operator from the operatorhub on your Openshift cluster
+- odo client
 
 ## Create a registry secret
 
@@ -19,15 +27,35 @@ oc secrets link default quay-secret --for=pull
 
 ## Clone the source from github
 ```
-https://github.com/mouachan/companies-svc.git
+git clone https://github.com/mouachan/companies-svc.git
 
 ```
-## Create a new mongodb app
+## Create a persistent mongodb 
+
+From Openshift Developper view, click on Add,select Database
+
+![Add database app](/img/catalog-db-ocp.png) 
+
+From the developer catalog, click on MongoDB Template (persistent)
+
+![Developer catalog](/img/developer-catalog.png) 
+
+Click on Instantiate Template (use the filled values)
+
+![Instantiate the template](/img/instantiate-template-mongodb.png) 
+
+or use odo cli to instantiate the database
 
 ```
-oc new-app mongodb-persistent --name=mongodb -p DATABASE_SERVICE_NAME=mongodb -p MONGODB_DATABASE=companies -l -p app=companies-svc  -p MONGODB_ADMIN_PASSWORD=r3dhat2020! -n companies-credit
+odo service create mongodb-persistent --plan default --wait -p DATABASE_SERVICE_NAME=mongodb -p MEMORY_LIMIT=512Mi -p MONGODB_DATABASE=companies -p VOLUME_CAPACITY=1Gi  -p app=companies-svc  -p MONGODB_ADMIN_PASSWORD=r3dhat2020! 
 ```
-## Create DB and collection
+
+You can also use the mongodb operator
+
+## Create  DB and collection
+
+Connect to the db and :
+
 ```
 #create db
 use companies
@@ -134,37 +162,18 @@ db.createCollection( "companyInfo", {
         }
    )
 ```
-## Build and generate native container image
+## Build the image on OpenShift
 
 ```
-./mvnw clean package  -Dquarkus.container-image.build=true -Dquarkus.container-image.name=companies-svc -Dquarkus.container-image.tag=native-1.0 -Pnative  -Dquarkus.native.container-build=true
+oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:19.3.1-java11~https://github.com/mouachan/companies-svc.git --name=companies-svc
+
 ```
 
-## Push the image to your registry (change the username by yours)
+## Add company using the Swagger UI 
 
-Make sure that you are connected to your images registry and create a repo named frequent-flyer
-```
-docker tag mouachani/companies-svc:native-1.0 quay.io/mouachan/companies-svc:native-1.0
-docker push quay.io/mouachan/companies-svc:native-1.0
-```
+![Swagger API](/img/swagger-ui-companies-mgmt.png) 
 
-## Create serverless service
-```
-echo "apiVersion: serving.knative.dev/v1
-kind: Service
-metadata:
-  name: companies-svc-native
-spec:
-  template:
-    metadata:
-      name: companies-svc-native-v1
-    spec:
-      containers:
-        - image: >-
-            quay.io/mouachan/companies-svc:native-1.0
-          env:
-            - name: JAVA_OPTS
-              value: "-Dvertx.cacheDirBase=/work/vertx"
-      imagePullSecrets:
-        - name: quay-secret" | oc apply -f -
-```  
+## Add company using the UI
+
+![Companies mgmt UI](/img/companies-mgmt.png) 
+
