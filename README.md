@@ -1,4 +1,3 @@
-
 ![Ouachani Logo](/img/logo.png) 
 
 # Companies services management
@@ -8,6 +7,9 @@
 This demo uses Quarkus, mongodb panache (more details : https://quarkus.io/guides/mongodb-panache) it aims to :
 - create API company management services to add/update/remove a company
 - build and deploy the service using openshift S2I 
+
+The application built on openshift use innovative technologies such Quarkus runtime, mongodb Panache framework (more details : https://quarkus.io/guides/mongodb-panache) to offer :
+- a rich API services to register/update/remove company in/to/from the catalog
 
 ## Prerequesties 
 Install :
