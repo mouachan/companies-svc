@@ -14,15 +14,17 @@ Install :
 - oc client
 - odo client
 
-## Create a registry secret
+## add a github secret to checkout sources 
 
 ```
-oc create secret docker-registry quay-secret \
-    --docker-server=quay.io/mouachan \
-    --docker-username= \
-    --docker-password=
-oc secrets link builder quay-secret
-oc secrets link default quay-secret --for=pull
+echo "apiVersion: v1
+data:
+  password: "username"
+  username: "password"
+kind: Secret
+metadata:
+  name: github
+type: kubernetes.io/basic-auth" | oc apply -f - 
 ```
 
 ## Clone the source from github
