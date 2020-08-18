@@ -3,6 +3,7 @@ package org.redhat.mongodb.codec;
 
 import org.redhat.mongodb.CompanyInfo;
 // import org.redhat.mongodb.notation.Notation;
+import org.redhat.mongodb.Notation;
 
 import com.mongodb.MongoClientSettings;
 import org.bson.Document;
@@ -40,9 +41,7 @@ public class CompanyCodec implements CollectibleCodec<CompanyInfo> {
         doc.put("capitalSocial", companyInfo.getCapitalSocial());
         doc.put("chiffreAffaire", companyInfo.getChiffreAffaire());
         doc.put("trancheEffectif", companyInfo.getCapitalSocial());
-
-        // if(companyInfo.getNote() != null)
-        //     doc.put("note",companyInfo.getNote());
+  
         documentCodec.encode(writer, doc, encoderContext);
     }
 
@@ -88,6 +87,7 @@ public class CompanyCodec implements CollectibleCodec<CompanyInfo> {
         companyInfo.setCapitalSocial(document.getString("capitalSocial"));
         companyInfo.setChiffreAffaire(document.getString("chiffreAffaire"));
         companyInfo.setTrancheEffectif(document.getString("trancheEffectif"));
+  
         // if(document.get("note") != null ){
         //     companyInfo.setNote((Notation)document.get("note"));
         // }

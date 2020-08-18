@@ -1,6 +1,8 @@
 package org.redhat.mongodb;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.quarkus.mongodb.panache.MongoEntity;
@@ -51,11 +53,18 @@ public class CompanyInfo extends PanacheMongoEntity {
         this.capitalSocial = capitalSocial;
         this.chiffreAffaire = chiffreAffaire;
         this.trancheEffectif = trancheEffectif;
+
         }
 
    
 
     public static CompanyInfo findBySiren(String siren){
+        Document document = new Document()
+        .append("siren", siren); 
+       return  (CompanyInfo)find(document).firstResult();
+    }
+
+    public static CompanyInfo findFirstBySiren(String siren){
         Document document = new Document()
         .append("siren", siren); 
        return  (CompanyInfo)find(document).firstResult();
@@ -380,5 +389,6 @@ public class CompanyInfo extends PanacheMongoEntity {
         this.trancheEffectif = trancheEffectif;
     }
 	
+
 
 }

@@ -34,10 +34,13 @@ public class CompanyResource {
         return CompanyInfo.findBySiren(siren);
     }
 
-    @POST
-    @Path("/update/note")
-    public List<CompanyInfo>  findBySiren(CompanyInfo companyInfo){
-        companyInfo.update();
-        return list();
+    @GET
+    @Path("/exist/{siren}")
+    public boolean exist(@PathParam("siren") String siren){
+        if(CompanyInfo.findFirstBySiren(siren) != null)
+            return true;
+        else return false;
     }
+
+ 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import com.mongodb.client.result.InsertOneResult;
+
 import org.bson.Document;
 import org.redhat.mongodb.CompanyInfo;
 
@@ -34,7 +36,7 @@ public class ReactiveCompanyService {
         }).collectItems().asList();
     }
 
-    public Uni<Void> add(CompanyInfo companyInfo) {
+    public Uni<InsertOneResult> add(CompanyInfo companyInfo) {
         Document document = new Document()
                 .append("statusRcs", companyInfo.getStatusRcs())
                 .append("siren", companyInfo.getSiren())

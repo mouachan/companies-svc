@@ -40,5 +40,9 @@ public class CompaniesResourceTest {
              .statusCode(200)
              .body("denomination",is("ASHILEA"));
     }
+    @Test
+    public void testInsertCompany(){
+      LOGGER.info("test add company");
+    }
 
 }
