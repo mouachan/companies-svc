@@ -161,7 +161,7 @@ db.createCollection( "companyInfo", {
 ## Build the image on OpenShift
 
 ```
-oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:19.3.1-java11~https://github.com/mouachan/companies-svc.git --name=companies-svc
+oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:20.1.0-java11~https://github.com/mouachan/companies-svc.git --name=companies-svc
 
 ```
 
