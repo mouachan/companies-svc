@@ -20,21 +20,4 @@ public class NotationResourceTest {
              .statusCode(200)
              .body("note",is("A"));
     }
-    @Test
-    public void testFindAllBySiren542107651() {
-      LOGGER.info("Test FindBySiren542107651 ");
-        given()
-          .when().get("/notation/search/542107651")
-          .then()
-             .statusCode(200)
-             .
-    }
-   
-
-
-    @Test
-    public void testInsertCompany(){
-      LOGGER.info("test add company");
-    }
-
 }
