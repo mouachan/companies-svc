@@ -15,14 +15,10 @@ Install :
 ## add a github secret to checkout sources 
 
 ```
-echo "apiVersion: v1
-data:
-  password: "username"
-  username: "password"
-kind: Secret
-metadata:
-  name: github
-type: kubernetes.io/basic-auth" | oc apply -f - 
+oc create secret generic username \
+    --from-literal=username=username \
+    --from-literal=password=password \
+    --type=kubernetes.io/basic-auth
 ```
 
 ## Clone the source from github
