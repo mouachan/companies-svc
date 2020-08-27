@@ -165,6 +165,31 @@ oc new-app quay.io/quarkus/ubi-quarkus-native-s2i:20.1.0-java11~https://github.c
 
 ```
 
+## Or build and generate container image
+
+Java
+```
+./mvnw clean package  -Dquarkus.container-image.build=true -Dquarkus.container-image.name=companies-svc -Dquarkus.container-image.tag=1.0
+```
+
+Native 
+```
+./mvnw clean package  -Dquarkus.container-image.build=true -Dquarkus.container-image.name=companies-svc -Dquarkus.container-image.tag=native-1.0 -Pnative  -Dquarkus.native.container-build=true 
+```
+
+Push the image to your registry (change the username by yours)
+
+Java
+```
+docker tag mouachani/companies-svc:1.0 quay.io/mouachan/companies-svc:1.0
+docker push quay.io/mouachan/companies-svc:1.0
+```
+Native
+```
+docker tag mouachani/companies-svc:native-1.0 quay.io/mouachan/companies-svc:native-1.0
+docker push quay.io/mouachan/companies-app/companies-svc:native-1.0
+```
+
 ## Add company using the Swagger UI 
 
 ![Swagger API](/img/swagger-ui-companies-mgmt.png) 
