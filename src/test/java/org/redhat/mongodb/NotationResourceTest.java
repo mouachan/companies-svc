@@ -18,6 +18,6 @@ public class NotationResourceTest {
           .when().get("/notation/search/first/542107651")
           .then()
              .statusCode(200)
-             .body("note",is("D"));
+             .body("note",is("A"));
     }
 }
